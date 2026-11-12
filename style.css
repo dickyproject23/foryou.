@@ -1,0 +1,378 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700;800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+    padding: 20px;
+    font-family: 'Quicksand', sans-serif;
+    color: #a65d83;
+    background: #ffeef5;
+}
+
+/* BACKGROUND BLUR */
+
+.background-blur {
+    position: fixed;
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: .45;
+    z-index: -1;
+}
+
+.blur1 {
+    background: #ffb5d4;
+    top: -100px;
+    left: -100px;
+}
+
+.blur2 {
+    background: #d7b9ff;
+    bottom: -100px;
+    right: -100px;
+}
+
+/* CARD */
+
+.page {
+    display: none;
+    width: 100%;
+    max-width: 420px;
+    padding: 35px 24px;
+    border: 1px solid rgba(255,255,255,.9);
+    border-radius: 30px;
+    text-align: center;
+    background: rgba(255,255,255,.65);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 15px 50px rgba(202,120,160,.15);
+    z-index: 2;
+    animation: show .6s ease;
+}
+
+.page.active {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+@keyframes show {
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(.96);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+h1 {
+    font-size: 29px;
+    color: #e878a8;
+    margin: 12px 0;
+}
+
+h2 {
+    color: #dc78a6;
+    margin: 10px 0;
+    font-size: 23px;
+}
+
+p {
+    font-size: 14px;
+    line-height: 1.8;
+    margin: 7px 0;
+}
+
+/* CUTE DECORATION */
+
+.cute-picture {
+    font-size: 80px;
+    margin: 5px;
+    animation: bounce 2s infinite;
+}
+
+.gift {
+    font-size: 85px;
+    margin: 15px;
+    animation: bounce 1.8s infinite;
+}
+
+@keyframes bounce {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+}
+
+.sticker {
+    position: absolute;
+    top: 25px;
+    right: 30px;
+    font-size: 35px;
+}
+
+.small {
+    font-size: 11px;
+    color: #c38ba6;
+}
+
+/* BUTTON */
+
+button {
+    font-family: inherit;
+    font-weight: 700;
+    color: white;
+    background: linear-gradient(135deg,#ff91bb,#d79bed);
+    border: none;
+    border-radius: 50px;
+    padding: 13px 24px;
+    margin: 12px 4px;
+    cursor: pointer;
+    box-shadow: 0 6px 16px #efb3d2;
+    transition: .3s;
+}
+
+button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px #e7a8cb;
+}
+
+.music-button {
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    z-index: 10;
+    font-size: 11px;
+    padding: 10px 15px;
+}
+
+/* PIN */
+
+input {
+    width: 190px;
+    padding: 15px;
+    margin: 12px;
+    border-radius: 15px;
+    border: 2px solid #f3b3d0;
+    outline: none;
+    text-align: center;
+    font-size: 22px;
+    letter-spacing: 10px;
+    background: #fff7fb;
+    color: #bd6590;
+}
+
+.clue {
+    background: #fff0f6;
+    padding: 13px;
+    border: 1px dashed #ed9dc1;
+    border-radius: 15px;
+    width: 100%;
+    margin: 12px 0;
+}
+
+/* CATCH GAME */
+
+.score {
+    font-size: 23px;
+    font-weight: bold;
+    margin: 15px;
+}
+
+#gameArea {
+    width: 100%;
+    height: 260px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+    background: #fff1f7;
+    border: 2px dashed #f0a6c9;
+    touch-action: none;
+}
+
+#basket {
+    position: absolute;
+    bottom: 4px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 40px;
+}
+
+.falling {
+    position: absolute;
+    font-size: 27px;
+}
+
+.controls {
+    display: flex;
+    gap: 35px;
+}
+
+/* MEMORY GAME */
+
+.memory-grid {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.memory-card {
+    height: 65px;
+    border-radius: 15px;
+    background: linear-gradient(135deg,#ffb0cf,#d8b3ef);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 27px;
+    color: white;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.memory-card.flipped,
+.memory-card.matched {
+    background: #fff0f7;
+    border: 2px solid #f4a4c8;
+}
+
+.memory-card.matched {
+    opacity: .6;
+}
+
+/* LOVE LETTER */
+
+
+/* LOVE LETTER SCROLL */
+
+#letterPage {
+    max-height: 85vh;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #efa5c7 transparent;
+}
+
+#letterPage .letter {
+    width: 100%;
+    padding: 25px;
+    text-align: left;
+    line-height: 2;
+    font-size: 14px;
+}
+
+#letterPage .letter p {
+    margin-bottom: 18px;
+    line-height: 2;
+}
+
+#letterPage .letter h3 {
+    text-align: left;
+    margin: 22px 0 12px;
+    color: #df78a8;
+}
+
+#letterPage .subtitle {
+    color: #bd8ca7;
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+
+#letterPage .signature {
+    text-align: right;
+    line-height: 2;
+    margin-top: 25px;
+}
+
+
+.letter-top {
+    font-weight: 800;
+    color: #df78a8;
+    margin-bottom: 15px;
+}
+
+.letter h3 {
+    color: #e878a8;
+    text-align: center;
+    margin-top: 15px;
+}
+
+.signature {
+    text-align: right;
+    color: #dc78a6;
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+/* FINAL */
+
+.final-box {
+    width: 100%;
+    padding: 25px;
+    border-radius: 20px;
+    background: #fff0f6;
+    margin: 15px 0;
+}
+
+.big-heart {
+    font-size: 75px;
+    animation: heartbeat 1s infinite;
+}
+
+@keyframes heartbeat {
+    50% { transform: scale(1.2); }
+}
+
+.secondary {
+    background: #c69bdf;
+}
+
+/* FLOATING */
+
+#floating {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 1;
+}
+
+#floating span {
+    position: absolute;
+    bottom: -40px;
+    font-size: 20px;
+    animation: floatUp linear forwards;
+    opacity: .65;
+}
+
+@keyframes floatUp {
+    to {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+@media(max-width:480px) {
+    .page {
+        padding: 28px 18px;
+    }
+
+    h1 {
+        font-size: 25px;
+    }
+
+    .memory-card {
+        height: 57px;
+    }
+}
